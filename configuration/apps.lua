@@ -8,36 +8,50 @@ local rofi_command = 'env /usr/bin/rofi -dpi ' .. get_dpi() .. ' -width ' .. wit
 return {
   -- List of apps to start by default on some actions
   default = {
-    terminal = 'terminator',
+    terminal = 'kitty',
     rofi = rofi_command,
     lock = 'i3lock-fancy',
-    quake = 'terminator',
+    quake = 'kitty',
     screenshot = 'flameshot screen -p ~/Pictures',
     region_screenshot = 'flameshot gui -p ~/Pictures',
     delayed_screenshot = 'flameshot screen -p ~/Pictures -d 5000',
-    browser = 'brave',
-    editor = 'gedit', -- gui text editor
-    social = 'discord',
-    game = rofi_command,
-    files = 'nautilus',
-    music = rofi_command 
+    browser = 'google-chrome-stable',
+    editor = 'libreoffice.writer', -- gui text editor
+    social = rofi_command,
+    videochat = 'zoom',
+    files = 'pcmanfm',
+    music = 'spotify',
+    chat = 'whatsapp-nativefier',
+    organisation = 'google-calendar-nativefier',
+    study = rofi_command,
+    notes = 'sticky',
+    codinguni = 'rstudio-desktop',
+    codinggen = rofi_command,
+    unifiles =  'pcmanfm /home/castanon/Documents/unihd',
+    video = 'me.aandrew.ytdownloader',
+    github = 'io.github.shiftey.Desktop'
+
   },
   -- List of apps to start once on start-up
   run_on_start_up = {
     'picom --config ' .. filesystem.get_configuration_dir() .. '/configuration/picom.conf',
     'nm-applet --indicator', -- wifi
     'pnmixer', -- shows an audiocontrol applet in systray when installed.
-    --'blueberry-tray', -- Bluetooth tray icon
+    'blueberry-tray', -- Bluetooth tray icon
     'numlockx on', -- enable numlock
     '/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)', -- credential manager
     'xfce4-power-manager', -- Power manager
-     'flameshot',
-     'synology-drive -minimized',
-     'steam -silent',
+    'flameshot',
+    'synology-drive -minimized',
+--     'whatsapp-nativefier',
+--     'steam -silent',
     'feh --randomize --bg-fill ~/.wallpapers/*',
-    '/usr/bin/variety',
+    'variety',
+    '~/.config/awesome/autorun.sh',
     -- Add applications that need to be killed between reloads
     -- to avoid multipled instances, inside the awspawn script
     '~/.config/awesome/configuration/awspawn' -- Spawn "dirty" apps that can linger between sessions
   }
 }
+
+

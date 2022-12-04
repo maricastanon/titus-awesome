@@ -10,7 +10,7 @@ local apps = require('configuration.apps')
 local globalKeys =
   awful.util.table.join(
   -- Hotkeys
-  awful.key({modkey}, 'F1', hotkeys_popup.show_help, {description = 'Show help', group = 'awesome'}),
+  awful.key({modkey}, 'h', hotkeys_popup.show_help, {description = 'Show help', group = 'awesome'}),
   -- Tag browsing
   awful.key({modkey}, 'w', awful.tag.viewprev, {description = 'view previous', group = 'tag'}),
   awful.key({modkey}, 's', awful.tag.viewnext, {description = 'view next', group = 'tag'}),
@@ -120,7 +120,7 @@ local globalKeys =
     {modkey},
     'p',
     function()
-      awful.util.spawn_with_shell(apps.default.screenshot)
+      awful.util.spawn_(apps.default.screenshot)
     end,
     {description = 'Take a screenshot of your active monitor and copy it to clipboard', group = 'screenshots (clipboard)'}
   ),
@@ -284,35 +284,35 @@ local globalKeys =
   ),--]]
   -- Brightness
   awful.key(
-    {},
-    'XF86MonBrightnessUp',
+    {modkey, 'Control'},
+    'c',
     function()
-      awful.spawn('xbacklight -inc 10')
+      awful.util.spawn_with_shell('light -A 10')
     end,
     {description = '+10%', group = 'hotkeys'}
   ),
   awful.key(
-    {},
-    'XF86MonBrightnessDown',
+    {modkey, 'Control'},
+    'e',
     function()
-      awful.spawn('xbacklight -dec 10')
+      awful.util.spawn_with_shell('light -U 10')
     end,
     {description = '-10%', group = 'hotkeys'}
   ),
   -- ALSA volume control
   awful.key(
-    {},
-    'XF86AudioRaiseVolume',
+    {modkey, 'Control'},
+    'a',
     function()
-      awful.spawn('amixer -D pulse sset Master 5%+')
+      awful.util.spawn_with_shell('amixer -D pulse sset Master 5%+')
     end,
     {description = 'volume up', group = 'hotkeys'}
   ),
   awful.key(
-    {},
-    'XF86AudioLowerVolume',
+    {modkey, 'Control'},
+    'a',
     function()
-      awful.spawn('amixer -D pulse sset Master 5%-')
+      awful.util.spawn_with_shell('amixer -D pulse sset Master 5%-')
     end,
     {description = 'volume down', group = 'hotkeys'}
   ),
@@ -379,14 +379,22 @@ local globalKeys =
       awful.util.spawn_with_shell('vm-attach attach')
     end
   ),
-  -- Lutris hotkey
+  -- Libinput hotkey
   awful.key(
     {modkey},
     'g',
     function()
-      awful.util.spawn_with_shell('lutris')
+      awful.util.spawn_with_shell('libinput-gestures-setup start')
     end
   ),
+  -- Lutris hotkey
+--  awful.key(
+--    {modkey},
+--    'g',
+--    function()
+--      awful.util.spawn_with_shell('lutris')
+--    end
+--  ),
   -- System Monitor hotkey
   awful.key(
     {modkey},

@@ -4,6 +4,7 @@ local icons = require('theme.icons')
 local apps = require('configuration.apps')
 
 local tags = {
+
   {
     icon = icons.chrome,
     type = 'chrome',
@@ -13,19 +14,13 @@ local tags = {
   {
     icon = icons.code,
     type = 'code',
-    defaultApp = apps.default.editor,
+    defaultApp = apps.default.terminal,
     screen = 1
   },
   {
-    icon = icons.social,
-    type = 'social',
-    defaultApp = apps.default.social,
-    screen = 1
-  },
-  {
-    icon = icons.game,
-    type = 'game',
-    defaultApp = apps.default.game,
+    icon = icons.coding,
+    type = 'coding',
+    defaultApp = apps.default.github,
     screen = 1
   },
   {
@@ -35,15 +30,59 @@ local tags = {
     screen = 1
   },
   {
-    icon = icons.music,
-    type = 'music',
-    defaultApp = apps.default.music,
+    icon = icons.planing,
+    type = 'calendar',
+    defaultApp = apps.default.organisation,
+    screen = 1
+  },
+  {
+    icon = icons.study,
+    type = 'study',
+    defaultApp = apps.default.unifiles,
+    screen = 1
+  },
+
+  {
+    icon = icons.writer,
+    type = 'writer',
+    defaultApp = apps.default.editor,
+    screen = 1
+  },
+  {
+    icon = icons.video,
+    type = 'youtube',
+    defaultApp = apps.default.video,
+    screen = 1
+  },
+  {
+    icon = icons.notes,
+    type = 'notes',
+    defaultApp = apps.default.notes,
     screen = 1
   },
   {
     icon = icons.lab,
-    type = 'any',
+    type = 'science',
     defaultApp = apps.default.rofi,
+    screen = 1
+  },
+  {
+    icon = icons.social,
+    type = 'social',
+    defaultApp = apps.default.chat,
+    screen = 1
+  },
+  {
+    icon = icons.zoom,
+    type = 'zoom',
+    defaultApp = apps.default.videochat,
+    screen = 1
+  },
+
+  {
+    icon = icons.music,
+    type = 'music',
+    defaultApp = apps.default.music,
     screen = 1
   }
 }

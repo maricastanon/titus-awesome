@@ -10,22 +10,27 @@ local mat_icon = require('widget.material.icon')
 local dpi = require('beautiful').xresources.apply_dpi
 local icons = require('theme.icons')
 
+
+
+
 -- Titus - Horizontal Tray
 local systray = wibox.widget.systray()
   systray:set_horizontal(true)
-  systray:set_base_size(20)
-  systray.forced_height = 20
+  systray:set_base_size(26)
+  systray.forced_height = 26
+
+
 
   -- Clock / Calendar 24h format
--- local textclock = wibox.widget.textclock('<span font="Roboto Mono bold 9">%d.%m.%Y\n     %H:%M</span>')
+local textclock = wibox.widget.textclock('<span font="Roboto Mono bold 9">%d.%m.%Y\n     %H:%M</span>')
 -- Clock / Calendar 12AM/PM fornat
-local textclock = wibox.widget.textclock('<span font="Roboto Mono 12">%I:%M %p</span>')
--- textclock.forced_height = 36
+ local textclock = wibox.widget.textclock('<span font="Roboto Mono 12">%I:%M %p</span>')
+ textclock.forced_height = 36
 
 -- Add a calendar (credits to kylekewley for the original code)
 local month_calendar = awful.widget.calendar_popup.month({
   screen = s,
-  start_sunday = false,
+  start_sunday = true,
   week_numbers = true
 })
 month_calendar:attach(textclock)
@@ -98,7 +103,7 @@ local TopPanel = function(s)
     {
       ontop = true,
       screen = s,
-      height = dpi(32),
+      height = dpi(35),
       width = s.geometry.width,
       x = s.geometry.x,
       y = s.geometry.y,
@@ -141,3 +146,5 @@ local TopPanel = function(s)
 end
 
 return TopPanel
+
+

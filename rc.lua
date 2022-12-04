@@ -7,6 +7,8 @@ local beautiful = require('beautiful')
 -- Theme
 beautiful.init(require('theme'))
 
+--Libinput
+--awful.util.spawn_with_shell('~/.config/awesome/autorun.sh')
 
 -- Layout
 require('layout')
@@ -69,3 +71,4 @@ _G.client.connect_signal(
     c.border_color = beautiful.border_normal
   end
 )
+
